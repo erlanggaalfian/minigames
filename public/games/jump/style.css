@@ -1,0 +1,101 @@
+/*
+ * File: style.css (Game JUMP)
+ * Lokasi: public/games/jump/
+ * Deskripsi: Style khusus untuk antarmuka game JUMP (Game Over & Hitung Mundur).
+ */
+
+/* --- Variabel & Pengaturan Global --- */
+:root {
+    --primary-color: #f09228;
+    --primary-color-hover: #ffb86c;
+    --dark-bg: #0d1117;
+    --dark-overlay-bg: rgba(13, 17, 23, 0.85);
+    --font-retro: 'Press Start 2P', cursive;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Mencegah scrollbar muncul */
+    background-color: #000; /* Latar belakang hitam jika kanvas belum termuat */
+}
+
+canvas {
+    display: block;
+}
+
+
+/* --- Layar Game Over --- */
+#gameOverScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-overlay-bg);
+    backdrop-filter: blur(8px);
+    display: none; /* Awalnya disembunyikan */
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    color: white;
+    text-align: center;
+    font-family: var(--font-retro);
+}
+
+.gameOver-box {
+    background: rgba(0,0,0,0.5);
+    padding: 40px;
+    border-radius: 15px;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(240, 146, 40, 0.5);
+}
+
+.gameOver-box h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#finalScore {
+    font-size: 4rem;
+    color: white;
+    margin: 10px 0 30px;
+}
+
+.back-button {
+    font-family: var(--font-retro);
+    font-size: 1rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.back-button:hover {
+    background-color: var(--primary-color-hover);
+    transform: scale(1.05);
+}
+
+
+/* --- Hitung Mundur --- */
+#countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-retro);
+    font-size: 120px;
+    color: white;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    display: none;
+    z-index: 5;
+}
+
