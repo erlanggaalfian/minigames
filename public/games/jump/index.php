@@ -38,7 +38,7 @@ if (!isset($_SESSION['currentPlayerName']) || empty($_SESSION['currentPlayerName
       <div id="finalScore">0</div>
       <!-- MODIFIKASI: URL di bawah ini ditambahkan parameter ?action=reset -->
       <!-- Ini akan memberi tahu halaman utama untuk menghapus session pemain. -->
-      <a href="../../index.php?action=reset" class="back-button">Main Lagi</a>
+      <a href="../../index.php?action=reset" class="back-button">Kembali Ke Menu</a>
     </div>
   </div>
 

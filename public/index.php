@@ -28,22 +28,21 @@ if (isset($_POST['social_media_name'])) {
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+    <audio src="games/jump/assets/menu.mp3" autoplay loop></audio>
+
     <div class="main-container">
         <header class="main-header">
-            <img src="assets/images/Logo.png" alt="Mamura Logo" class="mamura-logo">
             <h1>MINI GAMES BOOTH</h1>
         </header>
 
         <?php if (!isset($_SESSION['currentPlayerName']) || empty($_SESSION['currentPlayerName'])): ?>
         
-        <!-- MODIFIKASI: Kontainer QR Code sekarang menjadi elemen utama di tengah -->
         <div class="social-qr-container">
             <img src="assets/images/IG.png" alt="QR Instagram" class="qr-code">
             <img src="assets/images/FB.png" alt="QR Facebook" class="qr-code">
             <img src="assets/images/TK.png" alt="QR TikTok" class="qr-code">
         </div>
 
-        <!-- MODIFIKASI: Input section sekarang hanya berisi form dan judulnya -->
         <div id="player-input-section">
             <h2>Masukkan Nama / Akun Sosmed</h2>
             <form method="POST" action="index.php">
@@ -53,7 +52,6 @@ if (isset($_POST['social_media_name'])) {
         </div>
 
         <?php else: ?>
-        <!-- Tampilan setelah nama dimasukkan -->
         <div id="game-selection">
             <h2>Selamat Datang, <?php echo htmlspecialchars($_SESSION['currentPlayerName']); ?>!</h2>
             <div class="subtitle-wrapper">
@@ -73,6 +71,7 @@ if (isset($_POST['social_media_name'])) {
         </div>
         <?php endif; ?>
     </div>
+
+    <img src="assets/images/menuFrame.png" alt="Game Frame" class="main-frame"> 
 </body>
 </html>
-
