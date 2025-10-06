@@ -18,6 +18,7 @@
   --body-bg: #000; /* Latar belakang utama halaman (Hitam) */
   --game-over-box-bg: rgba(0, 0, 0, 0.5); /* Latar belakang kotak Game Over */
   --countdown-bg-image: url('assets/background.jpg'); /* Gambar latar belakang untuk countdown */
+  --dark-overlay-color: 13, 17, 23; /* Warna overlay gelap, sama seperti di main.css */
 
   /* Warna Teks */
   --text-light: white; /* Warna teks utama (Putih) */
@@ -29,23 +30,31 @@
 /* ------------------------- */
 /* --- PENGATURAN GLOBAL --- */
 /* ------------------------- */
+/* Pengaturan dasar untuk body dan html halaman game */
 body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: var(--body-bg); }
+/* Memastikan canvas game ditampilkan sebagai block element */
 canvas { display: block; }
 
 
 /* ------------------------- */
 /* --- LAYAR GAME OVER --- */
 /* ------------------------- */
-/* PERBAIKAN: Nilai background dan backdrop-filter disamakan dengan halaman utama */
-#gameOverScreen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 17, 23, 0.3); backdrop-filter: blur(6px); display: none; justify-content: center; align-items: center; z-index: 20; color: var(--text-light); text-align: center; font-family: var(--font-retro); }
+/* Kontainer utama untuk layar Game Over, dibuat full screen dan terpusat */
+#gameOverScreen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(var(--dark-overlay-color), 0.3); backdrop-filter: blur(6px); display: none; justify-content: center; align-items: center; z-index: 20; color: var(--text-light); text-align: center; font-family: var(--font-retro); }
+/* Kotak konten di dalam layar Game Over */
 .gameOver-box { background: var(--game-over-box-bg); padding: 40px; border-radius: 15px; border: 3px solid var(--primary-color); box-shadow: 0 0 20px var(--glow-color); }
+/* Judul "Game Over" */
 .gameOver-box h1 { font-size: 3rem; color: var(--primary-color); text-shadow: 0 0 10px var(--primary-color); margin-bottom: 20px; }
+/* Tampilan skor akhir pemain */
 #finalScore { font-size: 4rem; color: var(--text-light); margin: 10px 0 30px; }
+/* Tombol "Kembali Ke Menu" */
 .back-button { font-family: var(--font-retro); font-size: 1rem; padding: 15px 30px; border: none; border-radius: 8px; cursor: pointer; background: var(--primary-color); color: var(--dark-bg); text-decoration: none; transition: background-color 0.2s, transform 0.2s; }
+/* Efek hover pada tombol "Kembali Ke Menu" */
 .back-button:hover { background-color: var(--primary-color-hover); transform: scale(1.05); }
 
 
 /* ----------------------- */
 /* --- HITUNG MUNDUR --- */
 /* ----------------------- */
+/* Kontainer untuk hitung mundur "3 2 1" */
 #countdown { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; justify-content: center; align-items: center; background: var(--countdown-bg-image) no-repeat center center; background-size: cover; z-index: 5; font-family: var(--font-retro); font-size: 120px; color: var(--text-light); text-shadow: 0 0 20px var(--countdown-shadow); }

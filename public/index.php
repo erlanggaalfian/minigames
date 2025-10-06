@@ -65,8 +65,8 @@ if (isset($_POST['social_media_name']) && isset($_POST['social_media_type'])) {
                 </div>
 
                 <div class="input-group">
-                    <input type="text" name="social_media_name" placeholder="Nama Akun (Contoh=mamura.net.id)" required>
-                    <button type="submit">Mulai Petualangan</button>
+                    <input type="text" name="social_media_name" placeholder="Nama Akun (Contoh=@mamura.net.id)" required>
+                    <button type="submit">Mulai Game</button>
                 </div>
             </form>
         </div>

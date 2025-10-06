@@ -55,70 +55,121 @@
 /* ------------------------- */
 /* --- PENGATURAN GLOBAL --- */
 /* ------------------------- */
+/* Pengaturan dasar untuk body halaman admin */
 body { font-family: var(--font-main); background-color: var(--light-bg); margin: 0; color: var(--text-color-dark); display: flex; }
+/* Mengimpor font Poppins dari Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 
 /* ------------------- */
 /* --- HALAMAN LOGIN --- */
 /* ------------------- */
+/* Kontainer utama untuk halaman login, setup, dll. */
 .login-container { width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: var(--light-bg); }
+/* Judul di halaman login */
 .login-container h2 { font-weight: 700; margin-bottom: 1.5rem; color: var(--dark-bg); }
+/* Form atau kotak login */
 .login-container form { background: var(--card-bg); padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 24px var(--shadow-color); width: 100%; max-width: 400px; box-sizing: border-box; }
+/* Grup yang membungkus label dan input */
 .input-group { margin-bottom: 1.5rem; }
+/* Label untuk setiap input (Username, Password) */
 .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+/* Input field untuk teks dan password */
 .input-group input { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; transition: border-color 0.3s; }
+/* Efek focus pada input field */
 .input-group input:focus { border-color: var(--primary-color); outline: none; }
+/* Tombol submit di halaman login */
 .login-container button { width: 100%; padding: 12px; border: none; background-color: var(--primary-color); color: var(--text-color-light); font-size: 1rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; }
+/* Efek hover pada tombol submit */
 .login-container button:hover { background-color: var(--primary-color-hover); }
+/* Tampilan pesan error */
 .error-message { color: var(--error-color); margin-bottom: 1rem; text-align: center; }
 
 
 /* ----------------- */
 /* --- DASHBOARD --- */
 /* ----------------- */
+/* Panel navigasi samping (sidebar) */
 .sidebar { width: 250px; background-color: var(--sidebar-bg); color: var(--text-color-light); display: flex; flex-direction: column; height: 100vh; position: fixed; z-index: 10; }
+/* Judul di bagian atas sidebar */
 .sidebar h2 { padding: 1.5rem; margin: 0; background-color: rgba(255, 255, 255, 0.05); text-align: center; }
+/* Area navigasi utama di sidebar */
 .sidebar nav { flex-grow: 1; padding-top: 1rem; }
+/* Setiap link menu di sidebar */
 .sidebar nav a { display: block; padding: 1rem 1.5rem; color: var(--sidebar-text); text-decoration: none; transition: background-color 0.3s, color 0.3s; }
+/* Tampilan link menu saat aktif atau di-hover */
 .sidebar nav a.active, .sidebar nav a:hover { background-color: var(--dark-bg); color: var(--text-color-light); }
+/* Bagian bawah sidebar untuk tombol logout */
 .logout-section { padding: 1.5rem; border-top: 1px solid var(--dark-bg); }
+/* Tombol logout */
 .logout-button { width: 100%; background: transparent; color: var(--sidebar-text); border: 1px solid var(--sidebar-text); padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+/* Efek hover pada tombol logout */
 .logout-button:hover { background-color: var(--primary-color); color: var(--text-color-light); border-color: var(--primary-color); }
 
+/* Kontainer utama untuk konten dashboard */
 .main-content { margin-left: 250px; width: calc(100% - 250px); padding: 1.5rem; }
+/* Header di dalam konten dashboard */
 .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+/* Judul utama dashboard */
 .dashboard-header h1 { font-size: 1.8rem; margin: 0; }
+/* Teks sambutan untuk admin */
 .dashboard-header p { margin: 0; color: var(--text-color-muted); }
 
+/* Kontainer untuk kartu-kartu statistik */
 .stat-cards-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+/* Setiap kartu statistik individual */
 .stat-card { background-color: var(--card-bg); padding: 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 1rem; box-shadow: 0 8px 24px var(--shadow-color); }
+/* Wrapper untuk ikon di kartu statistik */
 .stat-card .icon-wrapper { font-size: 2rem; padding: 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+/* Warna ikon untuk kartu "Pemain" */
 .stat-card .icon-wrapper.players { background-color: var(--stat-card-icon-1); color: var(--stat-card-text-1); }
+/* Warna ikon untuk kartu "Sesi Bermain" */
 .stat-card .icon-wrapper.games { background-color: var(--stat-card-icon-2); color: var(--stat-card-text-2); }
+/* Warna ikon untuk kartu "Skor Tertinggi" */
 .stat-card .icon-wrapper.highscore { background-color: var(--stat-card-icon-3); color: var(--stat-card-text-3); }
+/* Angka besar di dalam kartu statistik */
 .stat-card .info h3 { margin: 0 0 0.25rem; font-size: 1.5rem; color: var(--text-color-dark); }
+/* Label atau deskripsi di kartu statistik */
 .stat-card .info p { margin: 0; color: var(--text-color-muted); }
 
+/* Kontainer untuk tabel skor */
 .table-container { background-color: var(--card-bg); border-radius: 12px; box-shadow: 0 8px 24px var(--shadow-color); overflow: hidden; }
+/* Header di dalam kontainer tabel (berisi judul dan filter) */
 .table-header { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+/* Judul "Skor Terbaru" */
 .table-header h3 { margin: 0; font-size: 1.2rem; }
+/* Form untuk filter */
 .filter-form { display: flex; gap: 1rem; }
+/* Dropdown untuk memilih game */
 .filter-wrapper select { padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-main); font-size: 0.9rem; background-color: transparent; cursor: pointer; }
 
+/* Pengaturan dasar tabel */
 table { width: 100%; border-collapse: collapse; }
+/* Sel header (th) dan sel data (td) */
 th, td { padding: 15px 20px; text-align: left; }
+/* Baris data di dalam tabel */
 tbody tr { border-bottom: 1px solid var(--table-border-color); transition: background-color 0.2s ease-in-out; }
+/* Baris header tabel */
 thead th { color: var(--text-color-muted); font-weight: 600; background-color: var(--light-bg); }
+/* Link untuk sorting di header tabel */
 thead th a { color: inherit; text-decoration: none; transition: color 0.2s; }
+/* Efek hover pada link sorting */
 thead th a:hover { color: var(--primary-color); }
+/* Menghilangkan border bawah pada baris terakhir */
 tbody tr:last-child { border-bottom: none; }
+/* Efek hover pada baris data */
 tbody tr:hover { background-color: var(--table-hover-bg); }
 
+/* Tampilan skor di dalam tabel */
 .score-cell { font-weight: 700; color: var(--primary-color); }
+/* Badge untuk nama game */
 .game-badge { background-color: var(--badge-bg); color: var(--badge-text); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+/* Tampilan saat tidak ada data di tabel */
 .no-data { text-align: center; padding: 3rem; color: var(--text-color-muted); }
 
+/* Area tombol aksi di bawah tabel */
 .action-buttons { padding: 1rem 1.5rem; border-top: 1px solid var(--border-color); text-align: right; }
+/* Tombol "Hapus yang Ditandai" */
 .delete-button { background: var(--error-color); color: var(--text-color-light); border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background-color 0.3s; }
+/* Efek hover pada tombol hapus */
 .delete-button:hover { background-color: var(--error-color-hover); }
