@@ -36,8 +36,6 @@ if (!isset($_SESSION['currentPlayerName']) || empty($_SESSION['currentPlayerName
       <h1>Game Over</h1>
       <p>Your Final Score:</p>
       <div id="finalScore">0</div>
-      <!-- MODIFIKASI: URL di bawah ini ditambahkan parameter ?action=reset -->
-      <!-- Ini akan memberi tahu halaman utama untuk menghapus session pemain. -->
       <a href="../../index.php?action=reset" class="back-button">Kembali Ke Menu</a>
     </div>
   </div>
@@ -45,9 +43,10 @@ if (!isset($_SESSION['currentPlayerName']) || empty($_SESSION['currentPlayerName
   <div id="countdown"></div>
 
   <script>
+    // Mengirim nama pemain dan jenis sosmed ke JavaScript
     const currentPlayerName = "<?php echo htmlspecialchars($_SESSION['currentPlayerName']); ?>";
+    const currentPlayerSocialType = "<?php echo htmlspecialchars($_SESSION['currentPlayerSocialType']); ?>";
   </script>
   <script src="game.js"></script>
 </body>
 </html>
-

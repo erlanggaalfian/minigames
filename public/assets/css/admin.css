@@ -1,38 +1,54 @@
 /*
  * File: admin.css
+ * Lokasi: public/assets/css/
  * Deskripsi: Style untuk semua halaman di panel admin.
  * Versi ini telah di-refactor untuk menggunakan CSS Custom Properties (Variables).
  */
 
 /* ---------------------------------- */
-/* --- DEKLARASI VARIABEL WARNA --- */
+/* --- DEKLARASI VARIABEL UTAMA --- */
 /* ---------------------------------- */
 :root {
-  /* Palet Warna Utama */
-  --primary-color: #3081d1; /* Biru utama untuk tombol dan highlight */
-  --primary-color-hover: #296eb8; /* Biru saat tombol di-hover */
+  /* --- Palet Warna Utama & Aksen --- */
+  --primary-color: #3081d1; /* Biru utama untuk tombol, link, dan highlight */
+  --primary-color-hover: #296eb8; /* Warna biru saat di-hover */
 
-  /* Warna Latar Belakang (Background) */
-  --sidebar-bg: #0d1117; /* Latar belakang sidebar (Sangat Gelap) */
-  --dark-bg: #161b22; /* Latar belakang menu aktif/hover (Gelap) */
-  --light-bg: #f6f8fa; /* Latar belakang utama halaman (Putih Gading) */
-  --card-bg: #ffffff; /* Latar belakang kartu/kontainer (Putih) */
-  --badge-bg: #ddf4ff; /* Latar belakang badge game */
-
-  /* Warna Teks */
-  --text-color-light: #ffffff; /* Teks untuk latar belakang gelap (Putih) */
-  --text-color-dark: #24292f; /* Teks utama untuk latar belakang terang (Abu Gelap) */
-  --text-color-muted: #57606a; /* Teks sekunder/abu-abu */
+  /* --- Warna Latar Belakang (Background) --- */
+  --sidebar-bg: #0d1117; /* Latar belakang sidebar (sangat gelap) */
+  --dark-bg: #161b22; /* Latar belakang menu sidebar yang aktif/hover */
+  --light-bg: #f6f8fa; /* Latar belakang utama halaman konten */
+  --card-bg: #ffffff; /* Latar belakang untuk semua kontainer kartu (putih) */
+  --table-hover-bg: #f6f8fa; /* Latar belakang baris tabel saat di-hover */
+  
+  /* --- Warna Latar Belakang Komponen Spesifik --- */
+  --badge-bg: #ddf4ff; /* Latar belakang untuk badge nama game */
+  --stat-card-icon-1: #eefbe7; /* Latar ikon untuk kartu statistik 'Pemain' */
+  --stat-card-icon-2: #e7f6f8; /* Latar ikon untuk kartu statistik 'Sesi Bermain' */
+  --stat-card-icon-3: #fef8e7; /* Latar ikon untuk kartu statistik 'Skor Tertinggi' */
+  
+  /* --- Warna Teks --- */
+  --text-color-light: #ffffff; /* Teks terang untuk latar belakang gelap (misal: tombol) */
+  --text-color-dark: #24292f; /* Teks gelap utama untuk konten */
+  --text-color-muted: #57606a; /* Teks sekunder/abu-abu (misal: sub-judul, deskripsi) */
   --sidebar-text: #c9d1d9; /* Teks menu di sidebar */
-  --badge-text: #0969da; /* Teks untuk badge game */
 
-  /* Warna Status & Aksi */
-  --error-color: #d93025; /* Merah untuk pesan error atau tombol hapus */
-  --border-color: #d0d7de; /* Warna border/garis pemisah */
+  /* --- Warna Teks Komponen Spesifik --- */
+  --badge-text: #0969da; /* Warna teks untuk badge nama game */
+  --stat-card-text-1: #509d3c; /* Warna ikon untuk kartu statistik 'Pemain' */
+  --stat-card-text-2: #3a8a99; /* Warna ikon untuk kartu statistik 'Sesi Bermain' */
+  --stat-card-text-3: #b4894e; /* Warna ikon untuk kartu statistik 'Skor Tertinggi' */
 
-  /* Lain-lain */
-  --font-main: 'Poppins', sans-serif;
-  --shadow-color: rgba(0, 0, 0, 0.08); /* Bayangan untuk kartu */
+  /* --- Warna Status & Aksi --- */
+  --error-color: #d93025; /* Warna merah untuk pesan error dan tombol hapus */
+  --error-color-hover: #c02d24; /* Warna merah saat tombol hapus di-hover */
+
+  /* --- Border & Pemisah --- */
+  --border-color: #d0d7de; /* Warna border umum untuk kartu dan input */
+  --table-border-color: #e1e4e8; /* Warna garis pemisah antar baris di tabel */
+  
+  /* --- Tipografi & Bayangan --- */
+  --font-main: 'Poppins', sans-serif; /* Font utama yang digunakan di seluruh panel */
+  --shadow-color: rgba(149, 157, 165, 0.1); /* Warna bayangan untuk efek kartu */
 }
 
 
@@ -40,7 +56,7 @@
 /* --- PENGATURAN GLOBAL --- */
 /* ------------------------- */
 body { font-family: var(--font-main); background-color: var(--light-bg); margin: 0; color: var(--text-color-dark); display: flex; }
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 
 /* ------------------- */
@@ -48,7 +64,7 @@ body { font-family: var(--font-main); background-color: var(--light-bg); margin:
 /* ------------------- */
 .login-container { width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: var(--light-bg); }
 .login-container h2 { font-weight: 700; margin-bottom: 1.5rem; color: var(--dark-bg); }
-.login-container form { background: var(--card-bg); padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px var(--shadow-color); width: 100%; max-width: 400px; box-sizing: border-box; }
+.login-container form { background: var(--card-bg); padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 24px var(--shadow-color); width: 100%; max-width: 400px; box-sizing: border-box; }
 .input-group { margin-bottom: 1.5rem; }
 .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
 .input-group input { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; transition: border-color 0.3s; }
@@ -61,37 +77,48 @@ body { font-family: var(--font-main); background-color: var(--light-bg); margin:
 /* ----------------- */
 /* --- DASHBOARD --- */
 /* ----------------- */
-.sidebar { width: 250px; background-color: var(--sidebar-bg); color: var(--text-color-light); display: flex; flex-direction: column; height: 100vh; position: fixed; }
+.sidebar { width: 250px; background-color: var(--sidebar-bg); color: var(--text-color-light); display: flex; flex-direction: column; height: 100vh; position: fixed; z-index: 10; }
 .sidebar h2 { padding: 1.5rem; margin: 0; background-color: rgba(255, 255, 255, 0.05); text-align: center; }
 .sidebar nav { flex-grow: 1; padding-top: 1rem; }
-.sidebar nav a { display: block; padding: 1rem 1.5rem; color: var(--sidebar-text); text-decoration: none; transition: background-color 0.3s; }
+.sidebar nav a { display: block; padding: 1rem 1.5rem; color: var(--sidebar-text); text-decoration: none; transition: background-color 0.3s, color 0.3s; }
 .sidebar nav a.active, .sidebar nav a:hover { background-color: var(--dark-bg); color: var(--text-color-light); }
-.logout-section { padding: 1.5rem; }
-.logout-button { width: 100%; background: var(--primary-color); color: var(--dark-bg); border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: background-color 0.3s; }
-.logout-button:hover { background-color: var(--primary-color-hover); }
+.logout-section { padding: 1.5rem; border-top: 1px solid var(--dark-bg); }
+.logout-button { width: 100%; background: transparent; color: var(--sidebar-text); border: 1px solid var(--sidebar-text); padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+.logout-button:hover { background-color: var(--primary-color); color: var(--text-color-light); border-color: var(--primary-color); }
 
-.main-content { margin-left: 250px; width: calc(100% - 250px); }
-.dashboard-header { padding: 1rem 2rem; background-color: var(--card-bg); border-bottom: 1px solid var(--border-color); }
+.main-content { margin-left: 250px; width: calc(100% - 250px); padding: 1.5rem; }
+.dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
 .dashboard-header h1 { font-size: 1.8rem; margin: 0; }
-.dashboard-header p { margin: 0.25rem 0 0; color: var(--text-color-muted); }
-.dashboard-container { padding: 2rem; }
-.table-container { background-color: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 15px var(--shadow-color); }
-.table-header { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color); }
-.filter-form { display: flex; justify-content: flex-end; }
-.filter-wrapper select { padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-main); font-size: 1rem; background-color: var(--light-bg); cursor: pointer; }
+.dashboard-header p { margin: 0; color: var(--text-color-muted); }
+
+.stat-cards-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+.stat-card { background-color: var(--card-bg); padding: 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 1rem; box-shadow: 0 8px 24px var(--shadow-color); }
+.stat-card .icon-wrapper { font-size: 2rem; padding: 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.stat-card .icon-wrapper.players { background-color: var(--stat-card-icon-1); color: var(--stat-card-text-1); }
+.stat-card .icon-wrapper.games { background-color: var(--stat-card-icon-2); color: var(--stat-card-text-2); }
+.stat-card .icon-wrapper.highscore { background-color: var(--stat-card-icon-3); color: var(--stat-card-text-3); }
+.stat-card .info h3 { margin: 0 0 0.25rem; font-size: 1.5rem; color: var(--text-color-dark); }
+.stat-card .info p { margin: 0; color: var(--text-color-muted); }
+
+.table-container { background-color: var(--card-bg); border-radius: 12px; box-shadow: 0 8px 24px var(--shadow-color); overflow: hidden; }
+.table-header { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+.table-header h3 { margin: 0; font-size: 1.2rem; }
+.filter-form { display: flex; gap: 1rem; }
+.filter-wrapper select { padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-main); font-size: 0.9rem; background-color: transparent; cursor: pointer; }
 
 table { width: 100%; border-collapse: collapse; }
-th, td { padding: 15px; text-align: left; }
-tbody tr { border-bottom: 1px solid var(--border-color); }
-thead th { color: var(--text-color-muted); font-weight: 600; }
+th, td { padding: 15px 20px; text-align: left; }
+tbody tr { border-bottom: 1px solid var(--table-border-color); transition: background-color 0.2s ease-in-out; }
+thead th { color: var(--text-color-muted); font-weight: 600; background-color: var(--light-bg); }
 thead th a { color: inherit; text-decoration: none; transition: color 0.2s; }
 thead th a:hover { color: var(--primary-color); }
 tbody tr:last-child { border-bottom: none; }
-tbody tr:hover { background-color: var(--light-bg); }
+tbody tr:hover { background-color: var(--table-hover-bg); }
 
 .score-cell { font-weight: 700; color: var(--primary-color); }
-.game-badge { background-color: var(--badge-bg); color: var(--badge-text); padding: 4px 8px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.game-badge { background-color: var(--badge-bg); color: var(--badge-text); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
 .no-data { text-align: center; padding: 3rem; color: var(--text-color-muted); }
 
-.action-buttons { padding: 1rem 1.5rem; border-top: 1px solid var(--border-color); }
-.delete-button { background: var(--error-color); color: var(--text-color-light); border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.action-buttons { padding: 1rem 1.5rem; border-top: 1px solid var(--border-color); text-align: right; }
+.delete-button { background: var(--error-color); color: var(--text-color-light); border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background-color 0.3s; }
+.delete-button:hover { background-color: var(--error-color-hover); }

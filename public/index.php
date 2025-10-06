@@ -9,14 +9,18 @@ session_start();
 
 if (isset($_GET['action']) && $_GET['action'] === 'reset') {
     unset($_SESSION['currentPlayerName']);
+    unset($_SESSION['currentPlayerSocialType']);
     header("Location: index.php");
     exit;
 }
 
-if (isset($_POST['social_media_name'])) {
-    $_SESSION['currentPlayerName'] = trim($_POST['social_media_name']);
-    header("Location: index.php");
-    exit;
+if (isset($_POST['social_media_name']) && isset($_POST['social_media_type'])) {
+    if (trim($_POST['social_media_name']) !== '') {
+        $_SESSION['currentPlayerName'] = trim($_POST['social_media_name']);
+        $_SESSION['currentPlayerSocialType'] = trim($_POST['social_media_type']);
+        header("Location: index.php");
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -43,11 +47,27 @@ if (isset($_POST['social_media_name'])) {
             <img src="assets/images/TK.png" alt="QR TikTok" class="qr-code">
         </div>
 
-        <div id="player-input-section">
-            <h2>Masukkan Nama / Akun Sosmed</h2>
+        <div class="input-card">
+            <h2>Masukkan Akun Sosmed</h2>
             <form method="POST" action="index.php">
-                <input type="text" name="social_media_name" placeholder="Contoh: @mamura.net.id" required>
-                <button type="submit">Mulai Petualangan</button>
+                
+                <p class="choice-instruction">Pilih Salah Satu:</p>
+
+                <div class="social-choice">
+                    <input type="radio" id="ig" name="social_media_type" value="Instagram" class="social-choice-input" required>
+                    <label for="ig" class="social-choice-label">Instagram</label>
+
+                    <input type="radio" id="fb" name="social_media_type" value="Facebook" class="social-choice-input" required>
+                    <label for="fb" class="social-choice-label">Facebook</label>
+
+                    <input type="radio" id="tk" name="social_media_type" value="TikTok" class="social-choice-input" required>
+                    <label for="tk" class="social-choice-label">TikTok</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" name="social_media_name" placeholder="Nama Akun (Contoh=mamura.net.id)" required>
+                    <button type="submit">Mulai Petualangan</button>
+                </div>
             </form>
         </div>
 

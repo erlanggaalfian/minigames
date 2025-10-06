@@ -38,15 +38,12 @@ unset($_SESSION['error_message']); // Hapus pesan agar tidak muncul lagi
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <!-- Menghubungkan ke file CSS admin -->
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
     <div class="login-container">
         <h2>Admin Login</h2>
-        <!-- Form login akan mengirim data ke file perantara 'auth.php' -->
         <form action="auth.php" method="POST">
-            <!-- Input tersembunyi untuk memberi tahu handler bahwa ini adalah aksi 'login' -->
             <input type="hidden" name="action" value="login">
 
             <div class="input-group">
@@ -60,7 +57,6 @@ unset($_SESSION['error_message']); // Hapus pesan agar tidak muncul lagi
             </div>
 
             <?php if ($error_message): ?>
-                <!-- Menampilkan pesan error jika ada -->
                 <p class="error-message"><?php echo htmlspecialchars($error_message); ?></p>
             <?php endif; ?>
 
@@ -69,4 +65,3 @@ unset($_SESSION['error_message']); // Hapus pesan agar tidak muncul lagi
     </div>
 </body>
 </html>
-

@@ -9,87 +9,129 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /* ---------------------------------- */
-/* --- DEKLARASI VARIABEL WARNA --- */
+/* --- DEKLARASI VARIABEL UTAMA --- */
 /* ---------------------------------- */
 :root {
-  /* Palet Warna Utama & Aksen */
-  --primary-color: #f09228; /* Oranye untuk tombol dan border */
+  /* --- Palet Warna Utama & Aksen --- */
+  --primary-color: #f09228; /* Oranye untuk tombol, border, dan elemen interaktif */
   --primary-color-hover: #ffb86c; /* Oranye lebih terang saat hover */
-  --glow-color: rgba(240, 146, 40, 0.7); /* Efek cahaya oranye */
+  --glow-color: rgba(240, 146, 40, 0.7); /* Efek cahaya oranye untuk shadow dan highlight */
+  --button-shadow-color: #A05B0F; /* Warna bayangan untuk efek 3D tombol */
 
-  /* Warna Latar Belakang (Background) */
+  /* --- Warna Latar Belakang (Background) --- */
   --dark-bg: #0d1117; /* Latar belakang utama (Sangat Gelap) */
   --dark-overlay-color: 13, 17, 23; /* Warna dasar overlay (digunakan dengan alpha) */
-  --input-bg: #161b22; /* Latar belakang input field */
-  --card-title-bg: rgba(0, 0, 0, 0.7); /* Latar belakang judul di kartu game */
-  --bg-image: url('/assets/images/background.jpg'); /* Gambar latar belakang */
+  --input-bg: #161b22; /* Latar belakang untuk input field */
+  --button-hover-bg: #2c333d; /* Latar belakang tombol sosmed saat hover */
+  --card-title-bg: rgba(0, 0, 0, 0.7); /* Latar belakang judul pada kartu game */
+  --input-card-bg: rgba(0, 0, 0, 0.4); /* Latar belakang semi-transparan untuk kartu input */
+  --bg-image: url('../images/background.jpg'); /* Gambar latar belakang utama */
 
-  /* Warna Teks */
+  /* --- Warna Teks --- */
   --text-light: white; /* Warna teks utama (Putih) */
-  --text-subtle: #f0f6fc; /* Warna teks judul h2 */
+  --text-subtle: #f0f6fc; /* Warna teks untuk sub-judul */
   --text-muted: #c9d1d9; /* Warna teks deskripsi/paragraf */
-  --text-dark-on-primary: var(--dark-bg); /* Warna teks untuk tombol oranye */
+  --text-dark-on-primary: var(--dark-bg); /* Warna teks gelap untuk kontras di atas tombol oranye */
 
-  /* Lain-lain */
-  --font-retro: 'Press Start 2P', cursive; /* PERBAIKAN: Font utama dideklarasikan di sini */
+  /* --- Tipografi & Lain-lain --- */
+  --font-retro: 'Press Start 2P', cursive; /* Font utama dengan tema retro */
 }
 
 
 /* ------------------------- */
 /* --- PENGATURAN GLOBAL --- */
 /* ------------------------- */
-body, html { 
-    margin: 0; 
-    padding: 0; 
-    width: 100%; 
-    height: 100%; 
-    font-family: var(--font-retro); /* PERBAIKAN: Memastikan font retro digunakan secara global */
-    color: var(--text-light); 
-    background: var(--bg-image) no-repeat center center fixed; 
-    background-size: cover; 
-    overflow: hidden; 
-}
-
+/* Pengaturan dasar untuk seluruh halaman */
+body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: var(--font-retro); color: var(--text-light); background: var(--bg-image) no-repeat center center fixed; background-size: cover; overflow-y: auto; }
+/* Frame atau bingkai utama game */
 .main-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: fill; z-index: 2; pointer-events: none; }
-.main-container { position: absolute; top: 0; left: 0; z-index: 1; display: flex; flex-direction: column; justify-content: center; gap: 1rem; align-items: center; width: 100%; height: 100%; padding: 1rem 2rem; box-sizing: border-box; text-align: center; background: rgba(var(--dark-overlay-color), 0.3); backdrop-filter: blur(6px); }
+/* PEMBARUAN: Padding atas ditambah agar judul tidak tertutup frame */
+.main-container { position: absolute; top: 0; left: 0; z-index: 1; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; align-items: center; width: 100%; min-height: 100%; padding: 6rem 2rem 10rem; box-sizing: border-box; text-align: center; background: rgba(var(--dark-overlay-color), 0.3); backdrop-filter: blur(6px); }
 
 
 /* ---------------- */
 /* --- HEADER --- */
 /* ---------------- */
-.main-header { padding-top: 2vh; }
-.mamura-logo { width: 150px; margin-bottom: 1rem; }
+/* Kontainer untuk header */
+.main-header { padding-top: 1vh; }
+/* Judul utama aplikasi */
 h1 { font-size: 2.5rem; color: var(--primary-color); text-shadow: 0 0 8px var(--glow-color), 0 0 16px var(--glow-color); animation: flicker 2s infinite alternate; }
-h2 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-subtle); }
+/* Sub-judul atau judul sekunder */
+h2 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-subtle); }
+/* Animasi kerlip untuk judul utama */
 @keyframes flicker { 0%, 18%, 22%, 25%, 53%, 57%, 100% { text-shadow: 0 0 8px var(--glow-color), 0 0 16px var(--glow-color), 0 0 32px var(--glow-color); } 20%, 24%, 55% { text-shadow: none; } }
 
 
-/* ------------------------ */
-/* --- INPUT & QR SECTION --- */
-/* ------------------------ */
-#player-input-section { width: 100%; display: flex; flex-direction: column; align-items: center; }
-#player-input-section form { display: flex; justify-content: center; gap: 1rem; }
-#player-input-section input { font-family: var(--font-retro); padding: 15px; font-size: 1rem; width: 400px; border: 2px solid var(--primary-color); background: var(--input-bg); color: var(--text-light); border-radius: 8px; transition: box-shadow 0.3s; }
-#player-input-section input:focus { outline: none; box-shadow: 0 0 15px var(--glow-color); }
-#player-input-section button { font-family: var(--font-retro); padding: 15px 25px; font-size: 1rem; border: none; background-color: var(--primary-color); color: var(--text-dark-on-primary); cursor: pointer; border-radius: 8px; transition: background-color 0.3s, transform 0.2s; }
-#player-input-section button:hover { background-color: var(--primary-color-hover); transform: scale(1.05); }
-.social-qr-container { display: flex; gap: 4rem; }
+/* ------------------- */
+/* --- AREA QR CODE --- */
+/* ------------------- */
+/* Kontainer untuk semua QR code */
+.social-qr-container { display: flex; gap: 4rem; justify-content: center; width: 100%; }
+/* Styling untuk setiap gambar QR code */
 .qr-code { width: 300px; border-radius: 15px; transition: transform 0.3s, box-shadow 0.3s; }
+/* Efek hover pada QR code */
 .qr-code:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--glow-color); }
 
 
 /* --------------------------- */
-/* --- GAME SELECTION CARD --- */
+/* --- KARTU INPUT PEMAIN --- */
 /* --------------------------- */
+/* Kontainer utama untuk form input (dibuat transparan) */
+.input-card { background: transparent; border: none; width: 100%; max-width: 800px; padding: 0; }
+/* Judul di dalam kartu input */
+.input-card h2 { margin-top: 0; margin-bottom: 1.5rem; font-size: 1.5rem; text-align: center; }
+/* Teks instruksi "Pilih Salah Satu" */
+.choice-instruction { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; text-align: center; }
+/* Jarak antar tombol sosmed dipersempit */
+.input-card .social-choice { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.5rem; }
+/* Ukuran tombol diperkecil */
+.input-card .social-choice-label { background-color: var(--input-bg); color: var(--text-light); cursor: pointer; padding: 12px 20px; border: 2px solid var(--primary-color); border-radius: 8px; transition: all 0.2s; font-family: var(--font-retro); font-size: 0.8rem; text-align: center; box-shadow: 0 4px 0 0 var(--button-shadow-color); opacity: 0.7; }
+/* Efek hover pada tombol sosmed */
+.input-card .social-choice-label:hover { opacity: 1; background-color: var(--button-hover-bg); border-color: var(--primary-color-hover); }
+/* Efek saat tombol sosmed ditekan */
+.input-card .social-choice-label:active { transform: translateY(2px); box-shadow: 0 2px 0 0 var(--button-shadow-color); }
+/* Elemen radio button asli yang disembunyikan */
+.input-card .social-choice-input { display: none; }
+/* Tampilan tombol sosmed saat dipilih */
+.input-card .social-choice-input:checked + .social-choice-label { background-color: var(--primary-color); color: var(--text-dark-on-primary); box-shadow: 0 4px 0 0 var(--button-shadow-color); opacity: 1; }
+/* Mengembalikan layout menyamping dan jarak dipersempit */
+.input-group { display: flex; justify-content: center; gap: 0.8rem; align-items: center; }
+/* PEMBARUAN: Padding horizontal dikurangi agar teks placeholder muat */
+.input-card input[type="text"] { font-family: var(--font-retro); padding: 15px 10px; font-size: 1rem; width: 380px; border: 2px solid var(--primary-color); background: var(--input-bg); color: var(--text-light); border-radius: 8px; transition: box-shadow 0.3s; }
+/* PEMBARUAN: Ukuran font placeholder diperkecil lagi */
+.input-card input[type="text"]::placeholder { font-size: 0.75rem; }
+/* Efek focus pada kotak input nama */
+.input-card input[type="text"]:focus { outline: none; box-shadow: 0 0 15px var(--glow-color); }
+/* Tombol "Mulai Petualangan" */
+.input-card button { font-family: var(--font-retro); padding: 15px 25px; font-size: 1rem; border: none; background-color: var(--primary-color); color: var(--text-dark-on-primary); cursor: pointer; border-radius: 8px; transition: background-color 0.3s, transform 0.2s; }
+/* Efek hover pada tombol "Mulai Petualangan" */
+.input-card button:hover { background-color: var(--primary-color-hover); transform: scale(1.05); }
+
+
+/* --------------------------- */
+/* --- KARTU PILIHAN GAME --- */
+/* --------------------------- */
+/* Kontainer untuk area pilihan game (setelah login) */
 #game-selection { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+/* Wrapper untuk sub-judul dan tombol ganti pemain */
 #game-selection .subtitle-wrapper { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+/* Ucapan selamat datang */
 #game-selection h2 { font-size: 1.2rem; margin-bottom: 0.5rem; max-width: 90%; }
+/* Teks "Pilih Game Untuk Dimainkan" */
 #game-selection p { font-size: 1rem; margin: 0; color: var(--text-muted); }
+/* Tombol "Ganti Pemain" */
 .change-player-btn { font-family: var(--font-retro); font-size: 0.7rem; color: var(--primary-color-hover); text-decoration: none; border: 1px solid var(--primary-color-hover); padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: all 0.3s ease; background: transparent; }
+/* Efek hover pada tombol "Ganti Pemain" */
 .change-player-btn:hover { background-color: var(--primary-color); color: var(--text-dark-on-primary); border-color: var(--primary-color); box-shadow: 0 0 10px var(--glow-color); }
+/* Kontainer untuk daftar game */
 .game-list { display: flex; gap: 2rem; }
+/* Setiap kartu game */
 .game-card { border: 3px solid var(--primary-color); border-radius: 10px; overflow: hidden; text-decoration: none; color: var(--text-light); width: 350px; height: 280px; position: relative; transition: transform 0.3s, box-shadow 0.3s; }
+/* Efek hover pada kartu game */
 .game-card:not(.disabled):hover { transform: translateY(-10px); box-shadow: 0 10px 30px var(--glow-color); }
+/* Gambar di dalam kartu game */
 .game-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.2); }
+/* Judul di dalam kartu game */
 .game-card .game-title { position: absolute; bottom: 0; left: 0; width: 100%; background: var(--card-title-bg); padding: 1rem; font-size: 1.5rem; font-family: var(--font-retro); }
+/* Tampilan kartu game yang dinonaktifkan */
 .game-card.disabled { filter: grayscale(1); cursor: not-allowed; }

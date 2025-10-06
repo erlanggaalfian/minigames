@@ -62,7 +62,8 @@ function resetLevel() {
 
 function startCountdown(onComplete) {
   const countdown = document.getElementById("countdown");
-  countdown.style.display = "block";
+  // Pastikan baris ini menggunakan "flex", bukan "block"
+  countdown.style.display = "flex"; 
   let count = 3;
   countdown.innerText = count;
   const interval = setInterval(() => {
@@ -188,7 +189,12 @@ function loseLife() {
 
 async function endGame() {
   gameRunning = false;
-  const gameData = { game_name: 'JUMP', social_media: currentPlayerName, score: score };
+  const gameData = { 
+    game_name: 'JUMP', 
+    social_media: currentPlayerName, 
+    social_media_type: currentPlayerSocialType,
+    score: score 
+  };
   try {
     const response = await fetch('/api/save-score.php', {
       method: 'POST',
@@ -234,4 +240,3 @@ document.addEventListener('assetsReady', () => {
         gameLoop();
     });
 });
-

@@ -28,9 +28,7 @@ unset($_SESSION['error_message']);
     <div class="login-container">
         <h2>Buat Akun Admin Pertama</h2>
         <p style="text-align: center; margin-bottom: 1rem;">Belum ada akun admin terdeteksi. Silakan buat akun pertama Anda.</p>
-        <!-- MODIFIKASI: Form action sekarang menunjuk ke file perantara 'auth.php' -->
         <form action="auth.php" method="POST">
-            <!-- Input tersembunyi untuk menandai aksi ini sebagai 'setup' -->
             <input type="hidden" name="action" value="setup">
 
             <div class="input-group">
@@ -49,4 +47,3 @@ unset($_SESSION['error_message']);
     </div>
 </body>
 </html>
-

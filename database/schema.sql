@@ -7,6 +7,7 @@ CREATE TABLE `scores` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `game_name` VARCHAR(100) NOT NULL,
   `social_media_name` VARCHAR(255) NOT NULL,
+  `social_media_type` VARCHAR(50) NOT NULL, -- KOLOM BARU
   `score` INT(11) NOT NULL,
   `play_timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
