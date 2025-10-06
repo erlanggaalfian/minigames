@@ -1,1 +1,1 @@
-docker run -d -p 80:80 --name minigame_mamura minigame_backup:latest
+docker run -d -p 80:80 --name minigame_mamura minigame_backup:V_1.0.0
